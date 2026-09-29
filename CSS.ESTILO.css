@@ -1,0 +1,1969 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #080808;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+  --background: #080808;
+  --text: #f5f5f5;
+  --muted: #888;
+  --border: rgba(255, 255, 255, .12);
+  --container: 1400px;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+  width: min(calc(100% - 80px), var(--container));
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+  padding: 25px 0;
+
+  transition:
+    background .4s ease,
+    padding .4s ease,
+    backdrop-filter .4s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(8, 8, 8, .75);
+
+  backdrop-filter: blur(15px);
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar.light-nav {
+  background: rgba(241, 241, 239, .92);
+
+  backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, .10);
+}
+
+.navbar.light-nav .logo {
+  color: #080808;
+}
+
+.navbar.light-nav .nav-links a {
+  color: rgba(0, 0, 0, .65);
+}
+
+.navbar.light-nav .nav-links a:hover {
+  color: #000;
+}
+
+.navbar.light-nav .menu-toggle {
+  color: #080808;
+}
+
+
+/* =====================================================
+   NAV CONTAINER
+===================================================== */
+
+.nav-container {
+  width: min(calc(100% - 80px), var(--container));
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 18px;
+
+  font-weight: 800;
+
+  letter-spacing: -.08em;
+}
+
+.nav-links {
+  display: flex;
+
+  gap: 35px;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, .7);
+
+  font-size: 11px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  letter-spacing: .12em;
+
+  transition: color .3s ease;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.menu-toggle {
+  display: none;
+
+  background: none;
+
+  border: none;
+
+  color: white;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  position: relative;
+
+  height: 100vh;
+
+  min-height: 700px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+}
+
+.bg-video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, .78),
+      rgba(0, 0, 0, .2)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0, 0, 0, .7),
+      transparent 50%
+    );
+}
+
+.hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(
+    calc(100% - 80px),
+    var(--container)
+  );
+
+  margin: auto;
+}
+
+.eyebrow {
+  margin-bottom: 20px;
+
+  color: rgba(255, 255, 255, .55);
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: .2em;
+}
+
+.hero h1 {
+  font-size: clamp(
+    80px,
+    12vw,
+    180px
+  );
+
+  line-height: .8;
+
+  letter-spacing: -.08em;
+
+  font-weight: 700;
+}
+
+.hero h1 span {
+  color: #777;
+}
+
+.hero-description {
+  max-width: 440px;
+
+  margin-top: 40px;
+
+  color: rgba(255, 255, 255, .7);
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+.buttons {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 35px;
+}
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 25px;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: .12em;
+
+  transition: .3s ease;
+}
+
+.btn.primary {
+  background: white;
+
+  color: black;
+}
+
+.btn.primary:hover {
+  transform: translateY(-3px);
+}
+
+.btn.secondary {
+  border: 1px solid rgba(255, 255, 255, .4);
+
+  color: white;
+}
+
+.btn.secondary:hover {
+  background: white;
+
+  color: black;
+}
+
+.scroll-indicator {
+  position: absolute;
+
+  z-index: 2;
+
+  bottom: 30px;
+
+  right: 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: rgba(255, 255, 255, .5);
+
+  font-size: 8px;
+
+  letter-spacing: .2em;
+}
+
+.scroll-indicator span {
+  width: 35px;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, .5);
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section {
+  padding: 140px 0;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro {
+  background: #f1f1ef;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.intro .eyebrow {
+  color: #777;
+}
+
+.intro h2 {
+  max-width: 750px;
+
+  color: #000;
+
+  font-size: clamp(
+    40px,
+    6vw,
+    85px
+  );
+
+  line-height: .95;
+
+  letter-spacing: -.06em;
+}
+
+.intro h2 span {
+  color: #888;
+}
+
+.intro-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+}
+
+.intro-grid > div:last-child p {
+  max-width: 520px;
+
+  margin-top: 35px;
+
+  color: #999;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   TRABAJOS
+===================================================== */
+
+.projects {
+  overflow: hidden;
+}
+
+.section-heading {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 60px;
+
+  margin-bottom: 70px;
+}
+
+.section-heading h2 {
+  font-size: clamp(
+    55px,
+    8vw,
+    100px
+  );
+
+  line-height: .85;
+
+  letter-spacing: -.06em;
+}
+
+.section-heading h2 span {
+  color: #777;
+}
+
+.section-description {
+  max-width: 300px;
+
+  color: #777;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   FEATURED PROJECT
+===================================================== */
+
+.featured-project {
+  display: block;
+
+  color: white;
+
+  text-decoration: none;
+
+  overflow: hidden;
+}
+
+.featured-project-large {
+  margin-bottom: 25px;
+}
+
+.featured-media {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #111;
+}
+
+.featured-media img,
+.featured-media video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform .8s cubic-bezier(.2, .7, .2, 1);
+}
+
+.featured-project:hover .featured-media img,
+.featured-project:hover .featured-media video {
+  transform: scale(1.04);
+}
+
+.featured-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, .8),
+      rgba(0, 0, 0, 0) 65%
+    );
+
+  pointer-events: none;
+}
+
+.featured-content {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 35px;
+  right: 35px;
+  bottom: 30px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+}
+
+.featured-content p {
+  margin-bottom: 8px;
+
+  color: rgba(255, 255, 255, .65);
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: .16em;
+}
+
+.featured-content h3 {
+  margin: 0;
+
+  font-size: clamp(
+    25px,
+    4vw,
+    50px
+  );
+
+  line-height: .95;
+
+  letter-spacing: -.05em;
+}
+
+.project-arrow {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, .5);
+
+  border-radius: 50%;
+
+  font-size: 20px;
+
+  transition:
+    background .3s ease,
+    color .3s ease,
+    transform .3s ease;
+}
+
+.featured-project:hover .project-arrow {
+  background: white;
+
+  color: black;
+
+  transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   DOS PROYECTOS
+===================================================== */
+
+.projects-two {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px;
+}
+
+.projects-two .featured-content {
+  left: 25px;
+
+  right: 25px;
+
+  bottom: 22px;
+}
+
+.projects-two .featured-content h3 {
+  font-size: clamp(
+    22px,
+    3vw,
+    34px
+  );
+}
+
+.projects-two .project-arrow {
+  width: 40px;
+  height: 40px;
+
+  font-size: 16px;
+}
+
+
+/* =====================================================
+   TODOS LOS TRABAJOS
+===================================================== */
+
+.all-projects-link {
+  margin-top: 60px;
+
+  text-align: right;
+}
+
+.all-projects-link a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #444;
+
+  color: #aaa;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: .12em;
+
+  transition: .3s ease;
+}
+
+.all-projects-link a:hover {
+  color: white;
+
+  border-color: white;
+
+  gap: 22px;
+}
+
+
+/* =====================================================
+   SERVICIOS
+===================================================== */
+
+.services {
+  background: #f1f1ef;
+
+  color: #080808;
+
+  border-top: 1px solid var(--border);
+}
+
+.services .service h3 {
+  color: #777;
+}
+
+.services .eyebrow {
+  color: #777;
+}
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid var(--border);
+}
+
+.service {
+  min-height: 280px;
+
+  padding: 30px;
+
+  border-right: 1px solid var(--border);
+
+  transition: background .3s ease;
+}
+
+.service:first-child {
+  border-left: 1px solid var(--border);
+}
+
+.service:hover {
+  background: #101010;
+}
+
+.service:hover h3,
+.service:hover span {
+  color: white;
+}
+
+.service:hover p {
+  color: #ccc;
+}
+
+.service span {
+  color: #555;
+
+  font-size: 10px;
+}
+
+.service h3 {
+  margin-top: 80px;
+
+  font-size: 20px;
+
+  letter-spacing: -.04em;
+}
+
+.service p {
+  margin-top: 15px;
+
+  color: #777;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   SOBRE MI
+===================================================== */
+
+/* =====================================================
+   SOBRE MÍ
+===================================================== */
+
+/* =====================================================
+   SOBRE MÍ
+===================================================== */
+
+.about {
+  border-top: 1px solid var(--border);
+  background: #080808;
+}
+
+
+/* CONTENEDOR PRINCIPAL */
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns: 1.2fr 0.8fr;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+
+/* =====================================================
+   COLUMNA IZQUIERDA
+===================================================== */
+
+.about-title {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+
+.about-title .eyebrow {
+  margin-bottom: 45px;
+}
+
+
+.about-title h2 {
+  margin: 0;
+
+  font-size: clamp(65px, 8vw, 120px);
+
+  line-height: 0.82;
+
+  letter-spacing: -0.075em;
+
+  font-weight: 700;
+}
+
+
+.about-title h2 span {
+  color: #777;
+}
+
+
+/* =====================================================
+   COLUMNA DERECHA
+===================================================== */
+
+.about-text {
+  max-width: 560px;
+
+  padding-top: 48px;
+}
+
+
+.about-text p {
+  margin: 0 0 35px;
+
+  color: #777;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* PRIMER PÁRRAFO DESTACADO */
+
+.about-text .about-highlight {
+  margin-bottom: 40px;
+
+  color: #f5f5f5;
+
+  font-size: 24px;
+
+  line-height: 1.35;
+
+  letter-spacing: -0.025em;
+}
+
+/* =====================================================
+   CONTENIDO
+===================================================== */
+
+.about .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  align-items: center;
+
+  gap: 80px;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.about-title h2 {
+  font-size: clamp(
+    60px,
+    8vw,
+    110px
+  );
+
+  line-height: .85;
+
+  letter-spacing: -.07em;
+
+  font-weight: 700;
+}
+
+.about-title h2 span {
+  color: #777;
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.about-text {
+  max-width: 480px;
+}
+
+.about-text p {
+  margin-bottom: 25px;
+
+  color: rgba(255, 255, 255, .68);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   MOVIMIENTO DE LA FOTO
+===================================================== */
+
+.about:hover .about-bg img {
+  transform: scale(1.09);
+
+  opacity: .34;
+}
+
+
+/* =====================================================
+   EFECTO DE LUZ SUTIL
+===================================================== */
+
+.about::after {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: 10%;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background: rgba(255, 255, 255, .025);
+
+  filter: blur(120px);
+
+  border-radius: 50%;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .about {
+    min-height: 600px;
+  }
+
+  .about-grid {
+    gap: 50px;
+  }
+
+  .about-bg img {
+    width: 70%;
+  }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .about {
+    min-height: auto;
+  }
+
+  .about-bg img {
+
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: .16;
+
+    object-position: center;
+
+    filter:
+      grayscale(100%)
+      contrast(1.1)
+      brightness(.65);
+  }
+
+
+  .about-overlay {
+
+    background:
+
+      linear-gradient(
+        180deg,
+        rgba(8, 8, 8, .95) 0%,
+        rgba(8, 8, 8, .72) 45%,
+        rgba(8, 8, 8, .95) 100%
+      );
+  }
+
+
+  .about-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+
+  .about-title h2 {
+
+    font-size: clamp(
+      55px,
+      15vw,
+      85px
+    );
+  }
+
+
+  .about-text {
+
+    max-width: 100%;
+  }
+
+}
+
+
+/* =====================================================
+   CONTACTO
+===================================================== */
+
+.contact-section {
+  padding: 170px 0;
+
+  background: #f1f1ef;
+
+  color: #080808;
+}
+
+.contact-content {
+  text-align: center;
+}
+
+.contact-content .eyebrow {
+  color: #777;
+}
+
+.contact-content h2 {
+  font-size: clamp(
+    55px,
+    9vw,
+    125px
+  );
+
+  line-height: .88;
+
+  letter-spacing: -.065em;
+}
+
+.contact-content h2 span {
+  color: #999;
+}
+
+.contact-content > p:not(.eyebrow) {
+  max-width: 500px;
+
+  margin: 35px auto;
+
+  color: #666;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+.contact-email {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #999;
+
+  font-size: clamp(
+    17px,
+    2vw,
+    25px
+  );
+
+  font-weight: 500;
+
+  transition: .3s ease;
+}
+
+.contact-email:hover {
+  border-color: black;
+
+  gap: 30px;
+}
+
+.contact-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 35px;
+}
+
+.contact-section .btn-primary {
+  background: #080808;
+
+  color: white;
+}
+
+.contact-section .btn-primary:hover {
+  background: #333;
+}
+
+.contact-section .btn-outline {
+  border-color: #aaa;
+
+  color: #080808;
+}
+
+.contact-section .btn-outline:hover {
+  background: #080808;
+
+  color: white;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+  padding: 30px 0;
+
+  border-top: 1px solid var(--border);
+}
+
+.footer-container {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.footer-logo {
+  font-weight: 800;
+
+  letter-spacing: -.08em;
+}
+
+.footer p,
+.footer a {
+  color: #555;
+
+  font-size: 10px;
+}
+
+.footer a:hover {
+  color: white;
+}
+
+
+/* =====================================================
+   PÁGINAS DE PROYECTOS
+===================================================== */
+
+.project-page {
+  padding-top: 80px;
+}
+
+.project-hero {
+  padding: 120px 0 100px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.project-hero .eyebrow {
+  color: #777;
+}
+
+.project-hero h1 {
+  margin-top: 25px;
+
+  color: #f5f5f5;
+
+  font-size: clamp(
+    70px,
+    11vw,
+    155px
+  );
+
+  line-height: .8;
+
+  letter-spacing: -.08em;
+
+  font-weight: 700;
+}
+
+.project-intro {
+  max-width: 560px;
+
+  margin-top: 45px;
+
+  color: #777;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   VIDEOS
+===================================================== */
+
+.project-videos {
+  padding: 120px 0 150px;
+}
+
+.video-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 80px 25px;
+}
+
+.video-item {
+  min-width: 0;
+}
+
+.video-item video {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  object-fit: cover;
+
+  background: #111;
+
+  border: 1px solid rgba(255, 255, 255, .08);
+}
+
+.video-info {
+  padding-top: 20px;
+}
+
+.video-info h2 {
+  color: #f5f5f5;
+
+  font-size: 23px;
+
+  font-weight: 600;
+
+  letter-spacing: -.04em;
+}
+
+.video-info p {
+  margin-top: 8px;
+
+  color: #666;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.video-info a {
+  display: inline-block;
+
+  margin-top: 16px;
+
+  padding-bottom: 6px;
+
+  border-bottom: 1px solid #444;
+
+  color: #aaa;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  letter-spacing: .1em;
+
+  transition:
+    color .3s ease,
+    border-color .3s ease;
+}
+
+.video-info a:hover {
+  color: white;
+
+  border-color: white;
+}
+
+
+/* =====================================================
+   VIDEOS VERTICALES
+   REGLA GENERAL
+===================================================== */
+
+/*
+   Esta clase se puede usar en:
+
+   - Municipalidad
+   - Malditos Nerds
+   - Canal 9
+   - Cualquier proyecto futuro
+
+   La altura queda limitada para que los videos
+   no ocupen toda la pantalla.
+*/
+
+.vertical-video {
+  display: block;
+
+  width: 100%;
+
+  height: min(68vh, 620px);
+
+  aspect-ratio: 9 / 16;
+
+  object-fit: contain;
+
+  background: #111;
+
+  border: 1px solid rgba(255, 255, 255, .08);
+}
+
+
+/* =====================================================
+   MUNICIPALIDAD
+   6 VIDEOS VERTICALES — 3 POR FILA
+===================================================== */
+
+.municipalidad-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 60px 25px;
+
+  width: 100%;
+
+  align-items: start;
+}
+
+.municipalidad-grid .video-item {
+  width: 100%;
+
+  min-width: 0;
+}
+
+.municipalidad-grid .video-item video {
+  height: min(68vh, 620px);
+
+  aspect-ratio: 9 / 16;
+
+  object-fit: contain;
+}
+
+
+/* =====================================================
+   DRONE
+   6 VIDEOS HORIZONTALES — 2 POR FILA
+===================================================== */
+
+.drone-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 80px 25px;
+
+  width: 100%;
+}
+
+.drone-grid .video-item {
+  width: 100%;
+
+  min-width: 0;
+}
+
+.drone-grid .video-item video {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  aspect-ratio: 16 / 9;
+
+  object-fit: contain;
+
+  background: #111;
+
+  border: 1px solid rgba(255, 255, 255, .08);
+}
+
+
+/* =====================================================
+   MALDITOS NERDS
+===================================================== */
+
+
+/* HORIZONTALES */
+
+.malditos-horizontal-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 25px;
+
+  width: 100%;
+
+  margin-bottom: 80px;
+}
+
+.malditos-horizontal-row .video-item {
+  width: 100%;
+
+  min-width: 0;
+}
+
+.malditos-horizontal-row .video-item video {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  aspect-ratio: 16 / 9;
+
+  object-fit: contain;
+
+  background: #111;
+
+  border: 1px solid rgba(255, 255, 255, .08);
+}
+
+
+/* VERTICALES */
+
+.malditos-vertical-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 60px 25px;
+
+  width: 100%;
+
+  margin-bottom: 80px;
+}
+
+.malditos-vertical-row .video-item {
+  width: 100%;
+
+  min-width: 0;
+}
+
+.malditos-vertical-row .video-item video {
+  height: min(68vh, 620px);
+
+  aspect-ratio: 9 / 16;
+
+  object-fit: contain;
+
+  background: #111;
+
+  border: 1px solid rgba(255, 255, 255, .08);
+}
+
+
+/* INFORMACIÓN */
+
+.malditos-grid .video-info {
+  padding-top: 20px;
+}
+
+.malditos-grid .video-info h2 {
+  color: #f5f5f5;
+
+  font-size: 23px;
+
+  font-weight: 600;
+
+  letter-spacing: -.04em;
+}
+
+.malditos-grid .video-info p {
+  margin-top: 8px;
+
+  color: #666;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   CANAL 9
+   3 VIDEOS VERTICALES POR FILA
+===================================================== */
+
+.canal9-videos {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 60px 25px;
+
+  width: 100%;
+
+  align-items: start;
+}
+
+.canal9-videos .video-item {
+  width: 100%;
+
+  min-width: 0;
+}
+
+
+/*
+   CANAL 9 USA LA MISMA ALTURA
+   QUE EL RESTO DE LOS VERTICALES
+*/
+
+.canal9-videos .vertical-video {
+  height: min(68vh, 620px);
+
+  aspect-ratio: 9 / 16;
+
+  object-fit: contain;
+}
+
+
+/* INFORMACIÓN */
+
+.canal9-videos .video-info {
+  padding-top: 20px;
+}
+
+.canal9-videos .video-info h2 {
+  color: #f5f5f5;
+
+  font-size: 23px;
+
+  font-weight: 600;
+
+  letter-spacing: -.04em;
+}
+
+.canal9-videos .video-info p {
+  margin-top: 8px;
+
+  color: #666;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.canal9-videos .video-info a {
+  display: inline-block;
+
+  margin-top: 16px;
+
+  padding-bottom: 6px;
+
+  border-bottom: 1px solid #444;
+
+  color: #aaa;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  letter-spacing: .1em;
+
+  transition:
+    color .3s ease,
+    border-color .3s ease;
+}
+
+.canal9-videos .video-info a:hover {
+  color: white;
+
+  border-color: white;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .container,
+  .nav-container,
+  .hero-content {
+    width: min(
+      calc(100% - 40px),
+      var(--container)
+    );
+  }
+
+
+  /* NAV */
+
+  .nav-links {
+    display: none;
+
+    position: absolute;
+
+    top: 70px;
+
+    left: 20px;
+
+    right: 20px;
+
+    padding: 25px;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    background: #101010;
+
+    border: 1px solid var(--border);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+
+  /* GENERALES */
+
+  .intro-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .section-heading {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .services-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+
+  /* PROYECTOS */
+
+  .project-hero {
+    padding: 110px 0 80px;
+  }
+
+
+  /* VERTICALES */
+
+  .vertical-video {
+    height: min(65vh, 560px);
+  }
+
+
+  /* MUNICIPALIDAD */
+
+  .municipalidad-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 50px 25px;
+  }
+
+
+  /* MALDITOS */
+
+  .malditos-vertical-row {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 50px 25px;
+  }
+
+
+  /* CANAL 9 */
+
+  .canal9-videos {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 50px 25px;
+  }
+
+  .canal9-videos .vertical-video {
+    height: min(65vh, 560px);
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .section {
+    padding: 100px 0;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: 650px;
+  }
+
+  .hero h1 {
+    font-size: 75px;
+  }
+
+  .buttons {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+
+  /* PROJECTS */
+
+  .projects-two {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-content {
+    left: 20px;
+
+    right: 20px;
+
+    bottom: 20px;
+  }
+
+  .featured-content h3 {
+    font-size: 23px;
+  }
+
+  .featured-content p {
+    font-size: 8px;
+  }
+
+  .project-arrow {
+    width: 36px;
+
+    height: 36px;
+
+    font-size: 14px;
+  }
+
+
+  /* SERVICES */
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service {
+    min-height: auto;
+
+    padding: 25px;
+
+    border-left: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+  }
+
+  .service h3 {
+    margin-top: 50px;
+  }
+
+
+  /* PROJECT PAGE */
+
+  .project-page {
+    padding-top: 60px;
+  }
+
+  .project-hero {
+    padding: 90px 0 70px;
+  }
+
+  .project-hero h1 {
+    font-size: 70px;
+  }
+
+  .project-intro {
+    margin-top: 30px;
+
+    font-size: 14px;
+  }
+
+  .project-videos {
+    padding: 80px 0 100px;
+  }
+
+  .video-grid {
+    gap: 55px;
+  }
+
+  .video-info h2 {
+    font-size: 20px;
+  }
+
+
+  /* VERTICALES */
+
+  .vertical-video {
+    width: 100%;
+
+    height: min(75vh, 600px);
+  }
+
+
+  /* MUNICIPALIDAD */
+
+  .municipalidad-grid {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .municipalidad-grid .video-item video {
+    height: min(75vh, 600px);
+  }
+
+
+  /* DRONE */
+
+  .drone-grid {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+
+  /* MALDITOS */
+
+  .malditos-horizontal-row,
+  .malditos-vertical-row {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+
+    margin-bottom: 55px;
+  }
+
+  .malditos-vertical-row .video-item video {
+    height: min(75vh, 600px);
+  }
+
+
+  /* CANAL 9 */
+
+  .canal9-videos {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .canal9-videos .vertical-video {
+    height: min(75vh, 600px);
+  }
+
+  .canal9-videos .video-info h2 {
+    font-size: 20px;
+  }
+
+
+  /* FOOTER */
+
+  .footer-container {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+}
